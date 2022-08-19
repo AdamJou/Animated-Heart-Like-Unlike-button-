@@ -1,0 +1,90 @@
+:root {
+    --disabled: #ccc;
+    --enabled: #f06;
+}
+body {
+    overflow-y: hidden;
+    text-align: center;
+    background-color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+p {
+    color: black;
+}
+#container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#heart {
+    width: 300px;
+    stroke: var(--enabled);
+    fill: var(--disabled);
+    stroke-dasharray: 54;
+    stroke-dashoffset: 54;
+}
+
+#heart.outline {
+    animation: 1s ease-in forwards outline, 0.6s linear 1s 2 forwards zoom;
+}
+
+#heart.dislike {
+    animation: 2s ease-out forwards dislike;
+}
+
+@keyframes outline {
+    0% {
+        stroke-dashoffset: 54;
+        fill: var(--disabled);
+    }
+    65% {
+        fill: var(--disabled);
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill: var(--enabled);
+    }
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(0.9, 0.9);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes dislike {
+    0% {
+        stroke-dashoffset: 0;
+        fill: var(--enabled);
+    }
+    65% {
+        stroke-dashoffset: 0;
+        fill: var(--disabled);
+    }
+    100% {
+        stroke-dashoffset: 54;
+
+        fill: var(--disabled);
+    }
+}
+.links {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    color: black;
+    text-decoration: none;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--enabled);
+}
+a {
+    margin-right: 5px;
+}
